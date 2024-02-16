@@ -22,10 +22,20 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
-      
-    #Login to Azure via CLI
+
+    # Use Azure Login Action to authenticate with Azure
     - name: Azure Login
-      run: az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    # Print Azure CLI version
+    - name: Print Azure CLI Version
+      run: az --version
+
+    # Print Azure CLI Login Status
+    - name: Azure CLI Login Status
+      run: az account show
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
@@ -42,4 +52,3 @@ jobs:
     # Validate the files
     - name: Terraform Validate
       run: terraform validate
-
