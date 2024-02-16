@@ -1,4 +1,4 @@
-resource_group_name       = "task-boardRGhh"
+resource_group_name       = "task-boardRG"
 resource_group_location   = "West Europe"
 azurerm_service_plan_name = "task-board-plan"
 app_service_name          = "task-board"
