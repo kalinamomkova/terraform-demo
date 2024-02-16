@@ -23,20 +23,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    # Use Azure Login Action to authenticate with Azure as a Service Principal
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    # Print Azure CLI version
-    - name: Print Azure CLI Version
-      run: az --version
-
-    # Print Azure CLI Login Status
-    - name: Azure CLI Login Status
-      run: az account show
-
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
