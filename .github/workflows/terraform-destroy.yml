@@ -23,7 +23,7 @@ jobs:
 
       - name: Configure Terraform Backend
         run: |
-          terraform init -backend-config="resource_group_name=StorageRG" -backend-config="storage_account_name=taskboardstorage" -backend-config="container_name=taskboardcontainer" -backend-config="key=terraform.tfstate"
+          terraform init -backend-config="resource_group_name=StorageRG" -backend-config="storage_account_name=taskboardstorage" -backend-config="container_name=yaskboardcontainer" -backend-config="key=terraform.tfstate"
 
       - name: Terraform Destroy
         run: terraform destroy -auto-approve
